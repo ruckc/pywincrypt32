@@ -29,14 +29,11 @@ jobs:
           pip install poetry
 
       - name: Install dependencies
-        run: poetry install --no-root
+        run: poetry install
 
       - name: Build package
         run: poetry build
 
-      - name: Run tests and coverage
+      - name: Run tests
         run: |
-          poetry run coverage run -m pytest
-          poetry run coverage xml
-          poetry run coverage json
-          poetry run coverage lcov
+          poetry run pytest
